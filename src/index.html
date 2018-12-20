@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <script src="/build/curso.js"></script>
+  <style>
+    :root{
+      --my-component-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <holy-grid>
+      <div slot="header">Contenido header</div>
+      <div slot="nav">Contenido nav</div>
+      <div slot="aside">Contenido aside</div>
+      <div slot="section">Contenido section</div>
+      <div slot="footer">Contenido footer</div>
+  </holy-grid>
+
+  <script>
+    var myComponent = document.querySelector('my-component');
+    myComponent.addEventListener('sendCadena', (e) => {
+      // Cogemos el evento y mostramos lo que emitimos (la propiedad detail)
+      console.log(e.detail);
+    })
+    
+    myComponent.componentOnReady().then( () => {
+      myComponent.changeCadena('Cadena cambiada');
+    })
+      
+    var holyGrid = document.querySelector('holy-grid');
+
+    
+  </script>
+
+</body>
+</html>
